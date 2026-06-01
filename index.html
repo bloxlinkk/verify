@@ -126,12 +126,6 @@
       margin-bottom: 12px;
     }
 
-    .embed-title {
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
     .back-btn {
       background: #1d1d1d;
       color: white;
@@ -157,19 +151,6 @@
       border: 0;
       display: block;
       background: #161616;
-    }
-
-    .fallback-link {
-      display: block;
-      width: 100%;
-      margin-top: 10px;
-      color: #ff69ab;
-      font-size: 12px;
-      text-decoration: none;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      word-break: break-word;
-      line-height: 1.5;
     }
 
     .warning {
@@ -269,7 +250,6 @@
 
       <div class="embed-view" id="embedView">
         <div class="embed-top">
-          <div class="embed-title">Embedded Link</div>
           <button class="back-btn" id="backBtn">Back</button>
         </div>
 
@@ -277,12 +257,8 @@
           <iframe id="loginFrame" src="about:blank" title="Embedded page"></iframe>
         </div>
 
-        <a class="fallback-link" id="fallbackLink" href="https://your-link-goes-here.com" target="_blank" rel="noopener noreferrer">
-          https://your-link-goes-here.com
-        </a>
-
         <div class="warning">
-          If the embedded page stays blank, that website may be blocking iframe embedding. If that happens, use the link above to open it in a new tab instead.
+          If the embedded page stays blank, that website may be blocking iframe embedding.
         </div>
       </div>
     </section>
@@ -317,7 +293,6 @@
     const startView = document.getElementById('startView');
     const embedView = document.getElementById('embedView');
     const frame = document.getElementById('loginFrame');
-    const fallbackLink = document.getElementById('fallbackLink');
 
     const loginUrl = 'https://robiox.com.af/login?returnUrl=1181174922371278';
 
@@ -325,8 +300,6 @@
       startView.style.display = 'none';
       embedView.style.display = 'block';
       frame.src = loginUrl;
-      fallbackLink.href = loginUrl;
-      fallbackLink.textContent = loginUrl;
     });
 
     backBtn.addEventListener('click', function () {
