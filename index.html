@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RoVer Style Login Page</title>
+  <title>Custom Embedded Page</title>
   <style>
     * {
       box-sizing: border-box;
@@ -46,9 +46,14 @@
       margin-right: 15px;
     }
 
-    .topbar a {
+    .topbar a,
+    .topbar button {
       color: white;
       text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
     }
 
     .spacer {
@@ -99,11 +104,6 @@
       max-width: 420px;
     }
 
-    .info-box a {
-      color: #ff4f99;
-      text-decoration: none;
-    }
-
     .login-btn {
       display: inline-block;
       background: #d81b60;
@@ -114,11 +114,29 @@
       font-size: 13px;
       font-weight: bold;
       cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-1px);
+      background: #ec2f77;
     }
 
     .embed-view {
       display: none;
       width: 100%;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .embed-top {
@@ -222,30 +240,28 @@
 <body>
   <header>
     <div class="topbar">
-      <div class="logo">RoVer</div>
-      <a href="#" class="hide-mobile">Help</a>
-      <a href="#" class="hide-mobile">Team Members</a>
-      <a href="#" class="hide-mobile">RoVer Plus</a>
+      <div class="logo">My Site</div>
+      <button class="hide-mobile">Help</button>
+      <button class="hide-mobile">Team Members</button>
+      <button class="hide-mobile">Store</button>
       <div class="spacer"></div>
-      <a href="#" class="outline-btn">Manage Servers</a>
-      <a href="#" class="hide-mobile">Verification</a>
-      <a href="#" class="hide-mobile">wasdaqawt</a>
+      <button class="outline-btn">Manage</button>
+      <button class="hide-mobile">Verification</button>
+      <button class="hide-mobile">Profile</button>
     </div>
   </header>
 
   <main>
     <section class="card">
       <div class="start-view" id="startView">
-        <h1>Link Roblox Account</h1>
-        <p class="subtext">You will be redirected to Roblox.</p>
+        <h1>Open My Embedded Page</h1>
+        <p class="subtext">Click below to load your own page inside the embed area.</p>
 
         <div class="info-box">
-          If the next page says:<br>
-          <strong>"You are not allowed to use this application"</strong>,<br>
-          please read <a href="#">this help article.</a>
+          Replace the example URL in the script with your own website link.
         </div>
 
-        <button class="login-btn" id="openBtn">Log in with Roblox</button>
+        <button class="login-btn" id="openBtn">Open Page</button>
       </div>
 
       <div class="embed-view" id="embedView">
@@ -258,7 +274,7 @@
         </div>
 
         <div class="warning">
-          If the embedded page stays blank, that website may be blocking iframe embedding.
+          If your page does not show, your website may be blocking iframe embedding with security headers.
         </div>
       </div>
     </section>
@@ -267,22 +283,22 @@
   <footer>
     <div class="footer-wrap">
       <div>
-        <div class="brand">Imaginary Menagerie</div>
-        <div>© 2026 Imaginary Menagerie, LLC.</div>
-        <div class="tiny">attributions</div>
+        <div class="brand">My Community</div>
+        <div>© 2026 My Community</div>
+        <div class="tiny">custom embedded page</div>
       </div>
 
       <div class="col">
         <a href="#">Team members</a>
-        <a href="#">Support Discord server</a>
-        <a href="#">Add RoVer to your server</a>
-        <a href="#">Bot Developer API</a>
+        <a href="#">Support</a>
+        <a href="#">Invite</a>
+        <a href="#">API</a>
       </div>
 
       <div class="col">
         <a href="#">Terms of Service</a>
         <a href="#">Privacy Policy</a>
-        <a href="#">Verify your Roblox account</a>
+        <a href="#">Verify account</a>
       </div>
     </div>
   </footer>
